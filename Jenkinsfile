@@ -1,9 +1,9 @@
 pipeline {
    agent any
     stages{
-        stage('build Analysis') {
+        stage('Docker build') {
            steps {
-               sh 'npm install && ng build'
+               sh 'docker build -t gruchi16/calc .'
               
              }
           }
