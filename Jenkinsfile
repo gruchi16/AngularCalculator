@@ -3,7 +3,7 @@ pipeline {
     stages{
         stage('Docker build') {
            steps {
-               sh 'docker build -t gruchi16/calc .'
+               sh 'sudo docker build -t gruchi16/calc .'
               
              }
           }
