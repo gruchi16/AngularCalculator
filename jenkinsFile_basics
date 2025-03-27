@@ -41,14 +41,14 @@ pipeline {
             steps {
                 script {
                     // Update deprecated packages
-                    sh 'npm update'
+                    sh 'sudo npm update'
                 }
             }
         }
 
            stage('BUild') {
                 steps {
-                    sh 'ng build'
+                    sh 'sudo ng build'
                 }
             }
 
