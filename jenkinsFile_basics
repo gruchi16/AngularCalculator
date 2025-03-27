@@ -5,7 +5,8 @@ environment {
 }
 
     stages{
-                   stage('Install Angular CLI') {
+                 
+            stage('Install Angular CLI') {
                 steps {
                     sh 'sudo npm install -g @angular/cli@latest'
                 }
@@ -22,9 +23,8 @@ environment {
                     sh 'sudo npm install -g npm'
                 }
             }    
-
-
-  stage('Clean Workspace') {
+            
+        stage('Clean Workspace') {
             steps {
                 script {
                     // Clean up existing node_modules and package-lock.json
@@ -51,20 +51,15 @@ environment {
             }
         }
 
-
-       
- stage('error handling2') {
-                steps {
-                    sh 'export NODE_OPTIONS=--openssl-legacy-provider'
-                }
-            }     
-        
-
            stage('BUild') {
                 steps {
-                    sh 'sudo ng build'
+                    sh 'ng build'
                 }
             }
+
+
+
+ 
 
 
        
