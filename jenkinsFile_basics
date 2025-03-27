@@ -33,7 +33,7 @@ pipeline {
             steps {
                 script {
                     // Install dependencies with the latest npm
-                    sh ' npm install'
+                    sh ' sudo npm install'
                 }
             }
         }
@@ -42,7 +42,7 @@ pipeline {
             steps {
                 script {
                     // Update deprecated packages
-                    sh 'npm update'
+                    sh 'sudo npm update'
                 }
             }
         }
