@@ -1,0 +1,59 @@
+pipeline {
+   agent any
+    stages{
+                   stage('Install Angular CLI') {
+                steps {
+                    sh 'sudo npm install -g @angular/cli@latest'
+                }
+            }
+
+            stage('error handling') {
+                steps {
+                    sh 'export NODE_OPTIONS=--openssl-legacy-provider'
+                }
+            }      
+          
+             stage('Install Dependencies') {
+                steps {
+                    sh 'sudo npm install -g npm'
+                }
+            }    
+            
+        stage('Clean Workspace') {
+            steps {
+                script {
+                    // Clean up existing node_modules and package-lock.json
+                    sh 'sudo rm -rf node_modules package-lock.json'
+                }
+            }
+        }
+         
+          stage('Install Dependencies again') {
+            steps {
+                script {
+                    // Install dependencies with the latest npm
+                    sh 'sudo npm install'
+                }
+            }
+        }
+
+        stage('Update Packages') {
+            steps {
+                script {
+                    // Update deprecated packages
+                    sh 'npm update'
+                }
+            }
+        }
+
+           stage('BUild') {
+                steps {
+                    sh 'ng build'
+                }
+            }
+
+
+       
+         
+    }
+}
