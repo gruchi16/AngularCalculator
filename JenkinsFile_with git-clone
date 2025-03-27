@@ -1,0 +1,21 @@
+pipeline {
+   agent any
+    stages{
+        
+        stage('Clone Public Repo')
+        {
+            steps {
+                git branch: 'master',
+                    url: 'https://github.com/gruchi16/AngularCalculator.git'
+            }
+        }
+        stage('Docker build') {
+           steps {
+               sh ' sudo  docker build -t gruchi16/calc .'
+              
+             }
+          }
+       
+         
+    }
+}
