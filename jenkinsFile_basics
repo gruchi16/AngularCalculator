@@ -49,7 +49,11 @@ pipeline {
 
 
        
-
+ stage('error handling') {
+                steps {
+                    sh 'export NODE_OPTIONS=--openssl-legacy-provider'
+                }
+            }     
         
 
            stage('BUild') {
