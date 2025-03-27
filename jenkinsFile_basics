@@ -18,7 +18,36 @@ pipeline {
                     sh 'sudo npm install -g npm'
                 }
             }    
-            
+
+
+  stage('Clean Workspace') {
+            steps {
+                script {
+                    // Clean up existing node_modules and package-lock.json
+                    sh 'sudo rm -rf node_modules package-lock.json'
+                }
+            }
+        }
+         
+          stage('Install Dependencies again') {
+            steps {
+                script {
+                    // Install dependencies with the latest npm
+                    sh ' npm install'
+                }
+            }
+        }
+
+        stage('Update Packages') {
+            steps {
+                script {
+                    // Update deprecated packages
+                    sh 'npm update'
+                }
+            }
+        }
+
+
        
 
         
