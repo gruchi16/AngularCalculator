@@ -29,14 +29,7 @@ pipeline {
             }
         }
 
-        stage('Update Packages') {
-            steps {
-                script {
-                    // Update deprecated packages
-                    sh 'sudo npm update'
-                }
-            }
-        }
+        
 
            stage('BUild') {
                 steps {
