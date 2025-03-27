@@ -1,5 +1,9 @@
 pipeline {
    agent any
+environment {
+    NODE_OPTIONS = "--openssl-legacy-provider"
+}
+
     stages{
                    stage('Install Angular CLI') {
                 steps {
