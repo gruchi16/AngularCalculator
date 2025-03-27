@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     // Install dependencies with the latest npm
-                    sh 'sudo npm install'
+                    sh 'npm install'
                 }
             }
         }
