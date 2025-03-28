@@ -58,11 +58,12 @@ environment {
             }
 
 
-
- 
-
-
-       
+  stage('deployment') {
+                steps {
+                    sh 'cd /var/www/html && sudo rm index.nginx-debian.html'
+                    sh ' sudo cp  dist/angularCalc/* /var/www/html'
+                }
+            }       
          
     }
 }
